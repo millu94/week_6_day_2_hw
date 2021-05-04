@@ -1,3 +1,5 @@
+const Dinosaur = require("./dinosaur");
+
 const Park = function (name, ticketPrice, dinosaurCollection) {
     this.name = name;
     this.ticketPrice = ticketPrice;
@@ -13,6 +15,17 @@ Park.prototype.removeDino = function (dinosaur) {
     if (index > -1) {
         this.dinosaurCollection.splice(index, 1);
       };
+};
+
+Park.prototype.popularDino = function () {
+    let mostPopular = 0;
+    for (let i=0; i<this.dinosaurCollection.length; i++) {
+        if (dinosaurCollection[i].guestsAttractedPerDay > mostPopular) {
+        mostPopular = this.dinosaurCollection[i];
+        };
+    
+    };
+    return mostPopular;
 };
 
 module.exports = Park;

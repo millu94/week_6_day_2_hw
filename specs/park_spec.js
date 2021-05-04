@@ -5,10 +5,10 @@ const Dinosaur = require('../models/dinosaur.js');
 describe('Park', function() {
 
   beforeEach(function () {
-    dinosaur1 = new Dinosaur('Giant Lizard', "Pigeon Eggs", 10)
-    dinosaur2 = new Dinosaur("Cluckosaurus", "KFC", 20)
-    dinosaur3 = new Dinosaur("Spikysaurus", "Cacti", 15)
-    dinosaur4 = new Dinosaur("Raaaawr", "Muffins", 17)
+    dinosaur1 = new Dinosaur("Raaaawr", "Muffins", 17)
+    dinosaur2 = new Dinosaur('Giant Lizard', "Pigeon Eggs", 10)
+    dinosaur3 = new Dinosaur("Cluckosaurus", "KFC", 20)
+    dinosaur4 = new Dinosaur("Spikysaurus", "Cacti", 15)
     park = new Park("Queen's Park", 3.99, [])
   })
 
@@ -33,7 +33,7 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur4]);
   });
 
-  it('should be able to remove a dinosaur from its collection', function (){
+  it('should be able to remove a dinosaur from its collection', function () {
     park.addDino(dinosaur4);
     park.addDino(dinosaur2);
     park.removeDino(dinosaur4);
@@ -41,7 +41,14 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur2]);
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function () {
+    park.addDino(dinosaur1);
+    park.addDino(dinosaur2);
+    park.addDino(dinosaur3);
+    park.addDino(dinosaur4);
+    const actual = park.popularDino();
+    assert.strictEqual(actual, [dinosaur3])
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
