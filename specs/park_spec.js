@@ -9,7 +9,7 @@ describe('Park', function() {
     dinosaur2 = new Dinosaur("Cluckosaurus", "KFC", 20)
     dinosaur3 = new Dinosaur("Spikysaurus", "Cacti", 15)
     dinosaur4 = new Dinosaur("Raaaawr", "Muffins", 17)
-    park = new Park("Queen's Park", 3.99, [dinosaur1, dinosaur2, dinosaur3, dinosaur4])
+    park = new Park("Queen's Park", 3.99, [])
   })
 
   it('should have a name', function () {
@@ -17,9 +17,15 @@ describe('Park', function() {
     assert.strictEqual(actual, "Queen's Park")
   });
 
-  it('should have a ticket price');
+  it('should have a ticket price', function () {
+    const actual = park.ticketPrice;
+    assert.strictEqual(actual, 3.99);
+  });
 
-  it('should have a collection of dinosaurs');
+  it('should have a collection of dinosaurs', function () {
+    const actual = park.dinosaurCollection;
+    assert.deepStrictEqual(actual, []);
+  });
 
   it('should be able to add a dinosaur to its collection');
 
